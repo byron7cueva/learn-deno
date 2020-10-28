@@ -1,4 +1,5 @@
 {
+  "version": "0.2.0",
   "configurations": [
     {
         "name": "Debug Deno",
@@ -9,12 +10,12 @@
         "runtimeArgs": [
             "run",
             //"--inspect",
-            "--inspect-brk=127.0.0.1:33333",
+            "--inspect-brk=127.0.0.1:9292",
             "-A",
             "tcp-server.ts",
             //"${file}"
         ],
-        "attachSimplePort": 33333,
+        "attachSimplePort": 9292,
         "console": "integratedTerminal",
         "outputCapture": "std"
     }
