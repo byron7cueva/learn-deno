@@ -1,0 +1,22 @@
+{
+  "configurations": [
+    {
+        "name": "Debug Deno",
+        "type": "pwa-node",
+        "request": "launch",
+        "cwd": "${workspaceFolder}",
+        "runtimeExecutable": "deno",
+        "runtimeArgs": [
+            "run",
+            //"--inspect",
+            "--inspect-brk=127.0.0.1:33333",
+            "-A",
+            "tcp-server.ts",
+            //"${file}"
+        ],
+        "attachSimplePort": 33333,
+        "console": "integratedTerminal",
+        "outputCapture": "std"
+    }
+  ]
+}
