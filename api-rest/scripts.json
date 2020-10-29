@@ -1,0 +1,17 @@
+{
+  "$schema": "https://deno.land/x/denon/schema.json",
+  "scripts": {
+    "start": {
+      "cmd": "deno run --no-check main.ts",
+      "desc": "run my main.ts file",
+      "watch": true,
+      "env": {
+        "SERVER_PORT": "3000"
+      },
+      "allow": {
+        "net": "0.0.0.0:3000",
+        "env": true
+      }
+    }
+  }
+}

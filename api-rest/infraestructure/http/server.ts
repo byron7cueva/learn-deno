@@ -1,5 +1,11 @@
 import { Application, Router } from '../../deps.ts';
 
+const env = Deno.env.toObject();
+const port = parseInt(env.SERVER_PORT);
+
+/**
+ * Server http
+ */
 export class Server {
   private static instance: Server;
 
@@ -7,6 +13,11 @@ export class Server {
 
   private constructor() {
     this.app = new Application();
+    this.app.addEventListener('listen', this.listenHandle);
+  }
+
+  private listenHandle = () => {
+    console.log(`Server run on port: ${port}`);
   }
 
   static getInstance() {
@@ -18,11 +29,11 @@ export class Server {
 
   useRouter(router: Router) {
     this.app.use(router.routes());
+    this.app.use(router.allowedMethods());
   }
 
   run() {
-    const env = Deno.env.toObject();
-    const port = parseInt(env.SERVER_PORT) || 3000;
     this.app.listen({ port });
   }
+
 }
